@@ -39,6 +39,10 @@ only. Your client gets a token, not your key, and the token stops working when t
 | `check_strategy` | none | Validate a strategy's files with the queue's own validator, and price it |
 | `backtest_runs` | backtest key | Recent runs under the backtest key, and the credit balance |
 | `backtest_status` | backtest key | One run's status, credits and report summary |
+| `smart_plans` | none | Smart-money plans (daily Polymarket wallet lists) and their live prices |
+| `smart_coverage` | none | Which smart-money days are published |
+| `smart_days` | smart-money key | The days the smart-money key can download, with each list's status |
+| `smart_download` | smart-money key | A short-lived signed URL for one day's list, with its sha256 |
 
 ## Without the plugin
 

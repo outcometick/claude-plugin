@@ -23,8 +23,9 @@ spend the user's money or credits, so the user does them.
 ## Access
 
 The first tool call opens a browser sign-in (OAuth); if it does not, run `/mcp` and authenticate `outcometick`.
-The consent page asks for the user's existing data key and/or backtest key. Both are optional: with neither, only
-the public tools work. Keys are bought by the user at https://outcometick.com; point them there, do not buy for them.
+The consent page asks for the user's existing keys: a data subscription key, a smart-money key and a backtest key,
+each in its own field (data and smart-money keys both start with `ck_`). All are optional: with none, only the
+public tools work. Keys are bought by the user at https://outcometick.com; point them there, do not buy for them.
 
 | Tool | Needs | What it does |
 | --- | --- | --- |
@@ -38,6 +39,10 @@ the public tools work. Keys are bought by the user at https://outcometick.com; p
 | `check_strategy` | none | Validate a strategy's files with the queue's own validator, and price it |
 | `backtest_runs` | backtest key | Recent runs under the backtest key, and the credit balance |
 | `backtest_status` | backtest key | One run's status, credits and report summary |
+| `smart_plans` | none | Smart-money plans (daily Polymarket wallet lists) and their live prices |
+| `smart_coverage` | none | Which smart-money days are published |
+| `smart_days` | smart-money key | The days the smart-money key can download, with each list's status |
+| `smart_download` | smart-money key | A short-lived signed URL for one day's list, with its sha256 |
 
 ## Finding and downloading data
 
@@ -51,6 +56,13 @@ the public tools work. Keys are bought by the user at https://outcometick.com; p
    URL plus the file's sha256. Download the URL (for example `curl -L -o <name> "<url>"`), check the sha256 before
    using the file, and call `download_file` again if the URL has expired.
 5. For pandas or polars, `format: "parquet"` lists the typed Parquet copy of each file instead of the gz original.
+
+## Smart-money lists
+
+- `smart_plans` and `smart_coverage` need no key: what is sold and which days are published.
+- With a smart-money key, `smart_days` lists the days the key can download and each list's status; take `day`
+  and `list` from it for `smart_download`, which returns a short-lived signed URL and the sha256 to check.
+  The file is a zstd-compressed CSV. A data subscription key does not open these, and the reverse.
 
 ## Backtests
 
