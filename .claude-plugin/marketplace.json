@@ -1,0 +1,15 @@
+{
+  "name": "outcometick",
+  "description": "outcometick plugins for Claude Code",
+  "owner": {
+    "name": "outcometick",
+    "email": "support@outcometick.com"
+  },
+  "plugins": [
+    {
+      "name": "outcometick",
+      "source": "./plugins/outcometick",
+      "description": "Historical data for Polymarket and Predict.fun crypto up/down markets, and backtest quotes and status, via the hosted outcometick MCP server"
+    }
+  ]
+}

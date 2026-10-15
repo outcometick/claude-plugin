@@ -1,0 +1,20 @@
+{
+  "name": "outcometick",
+  "description": "Historical data for Polymarket and Predict.fun crypto up/down markets, and backtest quotes and status, via the hosted outcometick MCP server",
+  "author": {
+    "name": "outcometick",
+    "email": "support@outcometick.com",
+    "url": "https://outcometick.com"
+  },
+  "homepage": "https://outcometick.com/docs",
+  "repository": "https://github.com/outcometick/claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "polymarket",
+    "predict.fun",
+    "prediction-markets",
+    "market-data",
+    "backtesting",
+    "mcp"
+  ]
+}
